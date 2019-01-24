@@ -1,0 +1,14 @@
+if (word[0] === 'void'){
+code_upper += 'void '+word[1]+'(';
+var i;
+for(i=2;i<word.length-2;i+=2) code_upper += word[i]+' '+word[i+1]+', ';
+code_upper += word[i]+' '+word[i+1];
+code_upper += '){\n\t//Enter Your Code Here\n}';
+} else{
+code_upper += word[0]+' '+word[2]+'(';
+var i;
+for(i=3;i<word.length-2;i+=2) code_upper += word[i]+' '+word[i+1]+', ';
+code_upper += word[i]+' '+word[i+1];
+code_upper += '){\n\t//Enter Your Code Here\n\treturn '+word[1]+';\n}';
+}
+code_upper += '\n';
