@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Code Stubber</title>
 </head>
 <body>
 
 <textarea cols="100" rows="15" id="word"></textarea>
 <br>
-<button id="btn">Do</button>
 <button id="python">Python</button>
 <button id="cpp">Cpp</button>
 <button id="c">C</button>
@@ -38,11 +37,11 @@
                 } else if (line.substring(0,5) === 'float'){
                     code += line.substring(6,line.length-1) + ' = float(input())'+ '\n';
                 } else if (line.substring(0,4) === 'long'){
-                    code += line.substring(4,line.length-1) + ' = int(input())'+ '\n';
+                    code += line.substring(5,line.length-1) + ' = int(input())'+ '\n';
                 } else if (line.substring(0,6) === 'string'){
-                    code += line.substring(5,line.length-1) + ' = input()'+ '\n';
+                    code += line.substring(7,line.length-1) + ' = input()'+ '\n';
                 } else if (line.substring(0,6) === 'double'){
-                    code += line.substring(6,line.length-1) + ' = float(input())'+ '\n';
+                    code += line.substring(7,line.length-1) + ' = float(input())'+ '\n';
 
                     // Printing Variable
                 } else if (line.substring(0,5) === 'print'){
@@ -68,6 +67,7 @@
                     code += '\n';
                 } else if (line.substring(0,7) === '2darray'){
                     var word = line.substring(8,line.length-1).split(',');
+                    code += word[3]+' = []\n';
                     code += 'for i in range('+word[1]+'):\n\t';
                     code += word[3]+'.append(['+word[0]+'(i) for i in input().strip().split()])';
                     code += '\n';
@@ -301,9 +301,9 @@
                 } else if (line.substring(0,4) === 'long'){
                     code += 'long '+line.substring(5,line.length-1)+';\n'+  'cin>>'+ line.substring(5,line.length-1) + ';'+ '\n';
                 } else if (line.substring(0,6) === 'string'){
-                    code += 'string '+line.substring(5,line.length-1)+';\n'+  'cin>>'+ line.substring(7,line.length-1) + ';'+ '\n';
+                    code += 'string '+line.substring(7,line.length-1)+';\n'+  'cin>>'+ line.substring(7,line.length-1) + ';'+ '\n';
                 } else if (line.substring(0,6) === 'double'){
-                    code += 'double '+line.substring(5,line.length-1)+';\n'+  'cin>>'+ line.substring(7,line.length-1) + ';'+ '\n';
+                    code += 'double '+line.substring(7,line.length-1)+';\n'+  'cin>>'+ line.substring(7,line.length-1) + ';'+ '\n';
 
                     // Printing Variable
                 } else if (line.substring(0,5) === 'print'){
@@ -466,9 +466,9 @@
                 } else if (line.substring(0,4) === 'long'){
                     code += 'long '+line.substring(5,line.length-1)+';\n'+   line.substring(5,line.length-1) + ' = in.nextLong();'+ '\n';
                 } else if (line.substring(0,6) === 'string'){
-                    code += 'String '+line.substring(5,line.length-1)+';\n'+  line.substring(7,line.length-1) + ' = in.nextLine();'+ '\n';
+                    code += 'String '+line.substring(7,line.length-1)+';\n'+  line.substring(7,line.length-1) + ' = in.nextLine();'+ '\n';
                 } else if (line.substring(0,6) === 'double'){
-                    code += 'double '+line.substring(5,line.length-1)+';\n'+   line.substring(7,line.length-1) + ' = in.nextDouble();'+ '\n';
+                    code += 'double '+line.substring(7,line.length-1)+';\n'+   line.substring(7,line.length-1) + ' = in.nextDouble();'+ '\n';
 
                     // Printing Variable
                 } else if (line.substring(0,5) === 'print'){
@@ -623,11 +623,6 @@
         $('#java').click(function () {
             $('#word2').val(generateJava($('#word').val()));
         });
-
-
-
-
-
 
     });
 </script>
